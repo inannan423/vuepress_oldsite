@@ -1,0 +1,45 @@
+{
+  "name": "theme-vdoing-blog",
+  "version": "1.0.0",
+  "scripts": {
+    "decrypt": "node pkg/vuepress-plugin-simple-encrypt/cli.js decrypt --source-dir docs --key-file docs/temp/keys.json --temp docs/.temp-encrypt --on-new-key ask",
+    "encrypt": "node pkg/vuepress-plugin-simple-encrypt/cli.js encrypt --source-dir docs --key-file docs/temp/keys.json --temp docs/.temp-encrypt --on-new-key ask",
+    "d": "node pkg/vuepress-plugin-simple-encrypt/cli.js decrypt --source-dir docs --key-file docs/temp/keys.json --temp docs/.temp-encrypt --on-new-key ask",
+    "e": "node pkg/vuepress-plugin-simple-encrypt/cli.js encrypt --source-dir docs --key-file docs/temp/keys.json --temp docs/.temp-encrypt --on-new-key ask",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "bash deploy.sh",
+    "editFm": "node utils/editFrontmatter.js",
+    "baiduPush": "node utils/baiduPush.js https://inannan423.github.io/ && bash baiduPush.sh",
+    "publish": "cd ./vdoing && npm publish && cd .. && yarn updateTheme",
+    "updateTheme": "yarn remove vuepress-theme-vdoing && rm -rf node_modules && yarn && yarn add vuepress-theme-vdoing -D"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@oak-tree-house/vuepress-plugin-encrypt": "^1.0.1",
+    "commander": "^5.1.0",
+    "crypto-js": "^4.1.1",
+    "dayjs": "^1.9.7",
+    "inquirer": "^7.1.0",
+    "json2yaml": "^1.1.0",
+    "v-dialogs": "^2.1.4",
+    "vuepress": "1.9.5",
+    "vuepress-plugin-baidu-autopush": "^1.0.1",
+    "vuepress-plugin-baidu-tongji": "^1.0.1",
+    "vuepress-plugin-comment": "^0.7.3",
+    "vuepress-plugin-cursor-effects": "^1.1.4",
+    "vuepress-plugin-demo-block": "^0.7.2",
+    "vuepress-plugin-fulltext-search": "^2.2.1",
+    "vuepress-plugin-one-click-copy": "^1.0.2",
+    "vuepress-plugin-posts-encrypt": "^0.0.6",
+    "vuepress-plugin-thirdparty-search": "^1.0.2",
+    "vuepress-plugin-zooming": "^1.1.7",
+    "vuepress-theme-vdoing": "^1.11.3",
+    "yamljs": "^0.3.0"
+  },
+  "dependencies": {
+    "vue": "2.6.14",
+    "vue-server-renderer": "2.6.14",
+    "vue-template-compiler": "2.6.14"
+  }
+}
